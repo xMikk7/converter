@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <title>JavaScript</title>
+    <!-- <link rel="icon" href="img/favicon.png" type="image/png"> -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="box">
+    <h3>Temperature converter</h3>
+    <p>Enter the temperature, choose an unit and submit!</p>
+    <form>
+      <input placeholder="0.00" type="number" min="0" class="tempInput">
+      <select class="fromUnit" required>
+        <option value="" selected disabled hidden>From unit</option> <!-- selected - default choosed, disabled - impossible to select, hidden - when expanded the element is hidden-->
+        <option value="Fahrenheit">Fahrenheit</option>
+        <option value="Celsius">Celsius</option>
+        <option value="Kelvin">Kelvin</option>
+      </select>
+      <select class="toUnit" required>
+        <option value="" selected disabled hidden>To unit</option>
+        <option value="Fahrenheit">Fahrenheit</option>
+        <option value="Celsius">Celsius</option>
+        <option value="Kelvin">Kelvin</option>
+      </select>
+      <button type="submit" class="btn">Convert</button>
+    </form>
+    <p class="result"></p>
+  </div>
+</body>
+</html>

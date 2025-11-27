@@ -1,0 +1,15 @@
+* {
+    font-family: Montserrat;
+}
+.box {
+    width: 45vh;
+    padding: 25px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+.btn {
+    background-color: black;
+    color: white;
+    border-radius: 10%;
+    border: 0px;
+}
