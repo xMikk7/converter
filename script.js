@@ -54,7 +54,7 @@ btn.addEventListener('click', (e) => {
             break
     }
     if (result < 0) {
-        p.textContent = 'It would be minus degree'
+        p.textContent = 'It would be a minus degree'
         p.style.color = 'red'
     }
     else if (result !== undefined) {
@@ -63,3 +63,5 @@ btn.addEventListener('click', (e) => {
     }
 }
 )
+
+// Author: xMikk7
