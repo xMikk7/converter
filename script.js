@@ -2,7 +2,6 @@ const tempInput = document.querySelector('.tempInput')
 const fromUnit = document.querySelector('.fromUnit')
 const toUnit = document.querySelector('.toUnit')
 const btn = document.querySelector('.btn')
-const box = document.querySelector('.box')
 const p = document.querySelector('.result')
 btn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -10,22 +9,20 @@ btn.addEventListener('click', (e) => {
     const tempInputValue = Number(tempInput.value)
     const fromUnitValue = fromUnit.value
     const toUnitValue = toUnit.value
-    const x = () => {
-        return `${tempInputValue} ${fromUnitValue} is ${result.toFixed(2)} ${toUnitValue}`
-    }
-    if (fromUnitValue === '' || toUnitValue === '') {
-        p.textContent = 'Please choose missing unit(s)'
-        p.style.color = 'red'
-    }
-    else if (toUnitValue === fromUnitValue) {
-        p.textContent = `U want to convert the same units?`
+    if (isNaN(tempInputValue)) {
+        p.textContent = '🛑ERROR: Please enter a valid number'
         p.style.color = 'red'
         return;
     }
-    if (isNaN(tempInputValue) || tempInputValue.trim == '') {
-        p.textContent = 'Please enter a valid number'
+    if (fromUnitValue === '' || toUnitValue === '') {
+        p.textContent = '🛑ERROR: Please choose missing unit(s)'
         p.style.color = 'red'
-        return
+        return;
+    }
+    else if (toUnitValue === fromUnitValue) {
+        p.textContent = `🛑ERROR: U want to convert the same units?`
+        p.style.color = 'red'
+        return;
     }
     switch (fromUnitValue) {
         case 'Fahrenheit':
@@ -53,15 +50,14 @@ btn.addEventListener('click', (e) => {
             }
             break
     }
-    if (result < 0) {
-        p.textContent = 'It would be a minus degree'
-        p.style.color = 'red'
+    if (toUnitValue === 'Kelvin' && result < 0) {
+        p.textContent = '⚠️WARNING: The result is below absolute zero (0K).'
+        p.style.color = 'orange'
     }
     else if (result !== undefined) {
-        p.textContent = x()
+        p.textContent = `✅SUCCESS: ${tempInputValue} ${fromUnitValue} is ${result.toFixed(2)} ${toUnitValue}`
         p.style.color = 'green';
     }
 }
 )
-
 // Author: xMikk7
